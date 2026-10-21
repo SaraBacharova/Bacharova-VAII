@@ -11,14 +11,19 @@ header {
     display: flex;
     align-items: center;
     gap: 24px;
+    position: sticky;
+    top: 0;
+    /*z-index zabezpečuje, že keby je v .css ešte niečo čo má definovanú position, zobrazí sa aj nad tým*/
+    z-index: 10;
 }
 
 header a,
-header h1 {
+header h2 {
     color: white;
+    text-decoration: none;
 }
 
-header h1 {
+header h2 {
     margin: 0;
 }
 
@@ -34,7 +39,71 @@ header h1 {
 
 main {
     flex: 1;
-    padding: 20px 40px 0px 40px;
+    padding: 20px 40px 20px 40px;
+}
+
+main h1 {
+    margin-top: 0;
+}
+
+.tabs {
+    display: flex;
+    gap: 16px;
+}
+
+.tabs a {
+    padding: 10px 24px;
+    border: 2px solid #441861;
+    color: #441861;
+    text-decoration: none;
+}
+
+.tabs a.active {
+    background-color: #441861;
+    color: white;
+}
+
+.book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.book {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 5px 10px 5px 5px;
+    border: 2px solid #cbbfd6;
+}
+
+.cover {
+    width: 90px;
+    height: 130px;
+    background-color: #e4dcec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-info {
+    width: 240px;
+}
+
+.book-info h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+}
+
+.book textarea {
+    flex: 1;
+    height: 90px;
+}
+
+.rating {
+    margin: 0;
+    color: #441861;
 }
 
 footer {
@@ -46,4 +115,107 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+/* 701 až 900 px: karta v mriežke, ovládacie prvky pod sebou */
+@media (max-width: 900px) {
+    .book {
+        display: grid;
+        grid-template-columns: auto 1fr auto 1fr;
+        grid-template-areas:
+            "cover  info  state   note"
+            "cover  info  rating  note"
+            "cover  info  button  note";
+        gap: 12px 16px;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .cover {
+        grid-area: cover;
+    }
+
+    .book-info {
+        grid-area: info;
+        width: auto;
+    }
+
+    .book select {
+        grid-area: state;
+        justify-self: start;
+    }
+
+    .rating {
+        grid-area: rating;
+    }
+
+    .book textarea {
+        grid-area: note;
+        flex: none;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .book button {
+        grid-area: button;
+        justify-self: start;
+    }
+}
+
+/* 650 px a menej */
+@media (max-width: 650px) {
+    /* hlavička */
+    header {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    .search {
+        order: 1;
+        flex-basis: 100%;
+    }
+
+    header nav {
+        order: 2;
+    }
+
+    .login {
+        order: 3;
+        margin-left: auto;
+    }
+
+    /* telo */
+    main {
+        padding: 20px 16px;
+    }
+
+    main h1 {
+        font-size: 1.6rem;
+    }
+
+    .tabs {
+        gap: 8px;
+    }
+
+    .tabs a {
+        flex: 1;
+        padding: 10px 4px;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    /* karta: kompaktné rozloženie */
+    .book {
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas:
+            "cover  info    info"
+            "state  rating  button"
+            "note   note    note";
+    }
+
+    .book select,
+    .book button {
+        justify-self: auto;
+    }
 }
