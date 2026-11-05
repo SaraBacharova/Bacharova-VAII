@@ -117,7 +117,7 @@ footer p {
     margin: 0;
 }
 
-/* 701 až 900 px: karta v mriežke, ovládacie prvky pod sebou */
+/* 651 až 900 px: karta v mriežke, ovládacie prvky pod sebou */
 @media (max-width: 900px) {
     .book {
         display: grid;
