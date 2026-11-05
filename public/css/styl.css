@@ -117,6 +117,81 @@ footer p {
     margin: 0;
 }
 
+
+
+/* ===== Katalóg kníh (úloha 6): tabuľka a formulár ===== */
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #441861;
+    background: #fff;
+    color: #441861;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #e6dcef;
+}
+
+td.actions {
+    white-space: nowrap;
+}
+
+td.actions form {
+    display: inline;
+}
+
+.errors {
+    border: 1px solid #b00020;
+    background: #fdecea;
+    color: #b00020;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+}
+
+.errors p {
+    margin: 4px 0;
+}
+
+.book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 500px;
+}
+
+.book-form input,
+.book-form textarea {
+    padding: 6px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+
 /* 651 až 900 px: karta v mriežke, ovládacie prvky pod sebou */
 @media (max-width: 900px) {
     .book {

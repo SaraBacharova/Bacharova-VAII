@@ -22,7 +22,7 @@
     <h2>Čitateľský denník</h2>
 
     <nav>
-        <a href="#">Katalóg</a>
+        <a href="<?= $link->url('book.index') ?>">Katalóg</a>
     </nav>
 
     <form class="search" action="#">
